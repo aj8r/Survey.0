@@ -4,11 +4,47 @@
   <meta charset="UTF-8">
   <title>SURVEY FORM</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+form{
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid orchid;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.993);
+}
+input, textarea{
+  margin-bottom: 15px;
+  border: 1px solid orchid;
+  width: 80%;
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+button{
+  background-color: blue;
+  color: pink;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: pink;
+}
+  </style>
   </head>
   <body>
     <h1 id="title">Survey Form (for research purposes of course)</h1>
     <p id="description">Thank you for taking the time to fill this survey that is indeed, for research purposes.</p>
-      <form id="survey-form" action="/submit" method="POST">
+      <form action="https://formspree.io/f/xpwwoqzn" method="POST">
       <label id="name-label">Name:<input id="name" type="text" name="name" required placeholder="e.g Liam"><br>
         <label id="email-label">Email<input id="email" type="email" name="email" required placeholder="e.g iamhot@real.com"><br>
         <label id="number-label">Age:<input id="number" type="number" name="age" min="18" max="35" placeholder="e.g 50"><br>
@@ -19,12 +55,13 @@
           <option value="option 4">Saturday</option></select><br>
           <fieldset>
             <p>Are you free next week?</p>
-          <label>
+           <label>
             <input name="free" type="radio" value="yes">Yes</label>
-          <label>
-            <input name="free" type="radio" value="no">No</label>
-            <label>
-              <input name="free" type="radio" value="maybe">Maybe (stop playing)</label><br>
+           </label>
+              <label>
+                <input name="free" type="radio" value="no">No</label>
+                <label>
+                  <input name="free" type="radio" value="maybe">Maybe (stop playing)</label><br>
             </fieldset>
           <fieldset>
             <p>Select your preference</p>
@@ -39,3 +76,11 @@
           <label for="comments">Any additional comments?</label><br>
           <textarea id="comments" name="comments" rows="5" cols="50" placeholder="Yes, I'm asking you out"></textarea><br>
           <input id="submit" type="submit" value="submit"></form>
+          <script>
+            const form=document.querySelector('form');
+            form.addEventListener('submit', function (e){
+              e.preventDefault();
+              alert('Thank you for your submission Precious');
+              form.reset();
+            });
+          </script>
